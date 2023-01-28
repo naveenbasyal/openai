@@ -19,7 +19,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="links">
-          <NavLink to="/" path={<Home />}>
+          <NavLink to="/openai" path={<Home />}>
             Home
           </NavLink>
           <NavLink to="/assistant" path={<Assistant />}>
