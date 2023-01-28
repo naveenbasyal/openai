@@ -11,7 +11,7 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/openai" element={<Home />} />
           <Route path="/assistant" element={<Assistant />} />
           <Route path="/imageGenerator" element={<ImageGenerator />} />
         </Routes>
