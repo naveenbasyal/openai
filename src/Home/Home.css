@@ -1,0 +1,71 @@
+.main_home {
+  margin-top: 10rem;
+}
+.card-title {
+  font-size: 5rem !important;
+  margin-left: 2rem !important;
+  color: #31344b !important;
+}
+.card-text {
+  color: #31344b !important;
+  text-align: justify !important;
+  padding: 1rem 2rem;
+}
+.card-body {
+  padding: 3rem 0 !important;
+}
+.card {
+  border-radius: 16px;
+  border: none !important;
+}
+/*--------------------- Try Button---------------------------- */
+.main_home a {
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  font-family: "Josefin Sans";
+  font-weight: 800;
+  padding: 1.2rem 2rem;
+  border-radius: 10px;
+  /* box-shadow: -6px -6px 10px #ffffff, 6px 6px 10px #b9b9ba !important; */
+  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+  background-color: #ebeef1 !important;
+  border: none !important;
+  position: relative;
+}
+.main_home a:hover {
+  background: radial-gradient(
+    circle farthest-corner at 22.4% 21.7%,
+    rgba(4, 189, 228, 1) 0%,
+    rgba(2, 83, 185, 1) 100.2%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.main_home a:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  color: rgba(0, 0, 0, 1);
+  box-shadow: inset 3px 3px 6px #919191, inset -3px -3px 6px #fff !important;
+}
+/* ------------------Active Button----------------------- */
+.link_active {
+  box-shadow: inset 2px 2px 5px #919191, inset -3px -3px 7px #fff !important;
+}
+/* ------------------------------------------ */
+@media screen and (max-width:450px) {
+  .col-sm-5{
+    margin: 0 0 5rem 0!important;
+    /* width: 100%!important; */
+  }
+  .main_home{
+    padding: 2rem!important;
+    margin-top: 5rem!important;
+  }
+}
+

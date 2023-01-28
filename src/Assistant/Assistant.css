@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,700;1,400&family=Josefin+Sans:wght@600&family=Oswald:wght@600&family=Poppins&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+@import url(//db.onlinewebfonts.com/c/749ba57b431f4eba8b31eb57d5aab83e?family=Brandon+Text+Medium);
+
+::selection {
+  text-shadow: 3px 3px 10px #fff;
+  background-color: #a9aab2;
+}
+
+/* -------------------Scrollbar----------------------- */
+.msg::-webkit-scrollbar-track {
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff !important;
+  background-color: #b8b8b8;
+}
+
+.msg::-webkit-scrollbar {
+  width: 10px;
+}
+
+.msg::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  height: 10px;
+  box-shadow: inset 2px 2px 5px #b8b9be, -3px -3px 7px #fff !important;
+  background-color: #e6e7ee;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.error {
+  font-size: 3rem !important;
+  letter-spacing: 2px;
+}
+.error_head {
+  margin: 4rem 1rem;
+  margin-top: 10rem;
+  font-size: 2rem !important;
+}
+html {
+  font-size: 62.5%;
+}
+.transition {
+  transition: 0.4s;
+}
+
+body {
+  overflow-x: hidden;
+}
+.pop {
+  font-family: "Poppins", sans-serif;
+}
+.com {
+  font-family: "Comic Neue", cursive;
+}
+.os {
+  font-family: "Oswald", sans-serif;
+}
+
+.clearButton {
+  cursor: pointer;
+  background: transparent;
+  display: grid;
+  place-items: center;
+}
+.fa-share {
+  margin: 0 0.5rem;
+}
+.response {
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+.rotate__Wrapper-sc-1b62bh9-0 {
+  margin: auto;
+}
+.sticky-top {
+  z-index: 1000 !important;
+}
+.jsf {
+  font-family: "Josefin Sans";
+}
+.speaker {
+  font-size: 2.8rem;
+  cursor: pointer;
+  float: right;
+  border-radius: 50%;
+  padding: 6px 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dustbin {
+  font-size: 2.1rem;
+  cursor: pointer;
+  float: right;
+  border-radius: 410px;
+  padding: 1rem 1rem;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dustbin:active {
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff !important;
+}
+.app_info {
+  font-size: 2.2rem;
+  margin: 2.8rem 4rem !important;
+  text-align: justify;
+}
+.msg {
+  background: #e6e7ee !important;
+  border: none;
+  overflow-y: scroll;
+  min-height: 67vh;
+  max-height: 67vh;
+  padding: 2rem 1.5rem !important;
+}
+.msg p {
+  font-size: 2.2rem;
+}
+.text-color {
+  color: #31344b;
+}
+.brandon {
+  font-family: "Brandon Text Medium" !important;
+}
+.heading_voice {
+  line-height: 1.3;
+  font-size: 5.5rem;
+  font-weight: 900;
+  font-family: "Brandon Text Medium" !important;
+  margin: 0 0 0 5rem;
+}
+.heading_voice span {
+  font-size: 6rem !important ;
+}
+.inner_main strong {
+  margin-left: 3rem !important;
+  font-size: 2em;
+  letter-spacing: 0.4px;
+}
+/* --------------------------Send Button ---------------------- */
+.sendButton:hover {
+  box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff !important;
+  background: radial-gradient(
+    circle farthest-corner at 22.4% 21.7%,
+    rgba(4, 189, 228, 1) 0%,
+    rgba(2, 83, 185, 1) 100.2%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media screen and (max-width: 450px) {
+  .assistant_mobile {
+    margin: 0 !important;
+    padding: 0 2rem !important;
+  }
+  .heading_voice {
+    margin: 2rem 0 !important;
+    padding: 0 2rem !important;
+    font-size: 4.5rem !important;
+  }
+  /* .heading_voice .stroke {
+    font-size: 5rem !important;
+  } */
+  .assistant_mobile .app_info {
+    margin: 2rem 0 !important;
+  }
+  .inner_main strong,
+  input {
+    margin: 0 !important;
+  }
+  .inner_main .microphone {
+    padding: 0.5rem 1.5rem !important;
+  }
+  .msg {
+    margin: 4rem 0 !important;
+  }
+  .heading_voice p {
+    font-size: 5rem !important ;
+  }
+}

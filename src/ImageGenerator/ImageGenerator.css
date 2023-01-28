@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100vh;
+  font-size: 62.5%;
+}
+body {
+  background-color: #e6e7ee;
+}
+.textClip::selection{
+  text-shadow: 0px 0px 0px rgb(132, 132, 132);
+  /* color: #000; */
+  background-color: #323233;
+}
+
+.generateButton {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.generateButton:hover {
+  box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff!important;
+}
+.heading_image {
+  line-height: 1.3;
+  font-size: 5.9rem;
+  font-weight: 900;
+  font-family: "Brandon Text Medium" !important;
+  margin: 0 0 0 5rem;
+}
+.heading_image span {
+  font-size: 6rem !important;
+}
+.ideas_text {
+  display: inline-block;
+  height: 32px;
+  padding: 7px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  cursor: pointer;
+  margin: 0.5rem 1rem;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+}
+.ideas_text:hover {
+  background: radial-gradient(
+    circle farthest-corner at 22.4% 21.7%,
+    rgba(4, 189, 228, 1) 0%,
+    rgba(2, 83, 185, 1) 100.2%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ideas_text:active {
+  background: radial-gradient(
+    circle farthest-corner at 22.4% 21.7%,
+    rgba(4, 189, 228, 1) 0%,
+    rgba(2, 83, 185, 1) 100.2%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff;
+}
+.main_data {
+  background: transparent;
+  margin-left: 4rem;
+}
+.main_data .para {
+  font-size: 2.5rem !important;
+}
+.input-group input {
+  font-size: 2.1rem;
+  background-color: #e6e7ee;
+  border: none;
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
+  border-radius: 10px;
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  outline: none;
+  margin-left: 2rem;
+}
+.clearButton {
+  cursor: pointer;
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
+  color: #000 !important;
+  border: none;
+  font-size: 2.3rem;
+  font-weight: bolder;
+}
+.text_heading_image {
+  font-size: 5rem !important;
+}
+.text_heading_rp {
+  font-size: 3rem;
+}
+.microphone {
+  font-size: 2.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.microphone:hover {
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
+}
+
+.responseImage {
+  min-height: 63.5vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 !important;
+}
+.actual_image {
+  min-width: 90%;
+  padding: 1rem 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+}
+/* -------------------OVERLAY--------------- */
+.overlay_button {
+  font-size: 2.5rem;
+  padding: .5rem 1.3rem;
+  cursor: pointer;
+  margin: 0rem 0 3rem 0;
+}
+.overlay_button:hover {
+  box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff !important;
+}
+.overlay {
+  position: absolute;
+  width: calc(100% - 25rem);
+  top: 5%;
+  left: 50%;
+  padding: 20px;
+  transform: translate(-50%,0);
+  border-radius: 0.55rem;
+  overflow: hidden;
+  z-index: 222222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  background-color: #e6e7ee;
+
+}
+.enlarged-image {
+  background-color: rgba(255, 255, 255, 0.69);
+  min-width: 45%;
+}
+/* ------------------------------REsponsive--------------------- */
+@media screen and (max-width:450px) {
+  .main_data,.heading_image{
+    margin: 2rem 0!important;
+    padding: 0 2rem !important;
+  }
+  .heading_image{
+    font-size: 4.5rem;
+  }
+  .heading_image span{
+    font-size: 5rem!important;
+  }
+  .main_data .app_info{
+    margin: 2rem 2rem!important;
+  }
+  .main_data .microphone{
+    padding: 1rem 2rem!important;
+  }
+  .ideas{
+    margin: 1rem 1rem!important;
+  }
+  .ideas strong{
+    margin: 2rem 0!important;
+  }
+  .responseImage{
+    margin: 3rem 1rem!important;
+    /* padding: 1rem .5rem !important; */
+    min-height: 50vh!important;
+  }
+  .overlay{
+    width: 100%;
+    min-height: 100vh;
+    top:90%;
+  }
+  .enlarged-image{
+    min-width: 105%;
+  }
+  .overlay_button{
+    position: absolute;
+    bottom: 10%!important;
+  }
+}
+
