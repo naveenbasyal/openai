@@ -1,9 +1,14 @@
 nav {
   width: 100vw;
+  /* position: relative; */
+  position: sticky;
+  top: 0;
   padding: 1.5rem 2rem;
   display: flex;
   box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;
   justify-content: space-between;
+  background-color: #e6e7ee;
+  z-index: 10000;
 }
 .active {
   background: radial-gradient(
@@ -31,11 +36,11 @@ nav {
   margin-left: 3rem;
 }
 .shadow-out {
-  box-shadow: 3px 3px 6px #919191, -3px -3px 6px #fff !important;
+  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff !important;
   border-radius: 10px;
 }
 .shadow-in {
-  box-shadow: inset 3px 3px 6px #919191, inset -3px -3px 6px #fff !important;
+  box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff !important;
   border-radius: 10px;
 }
 .logo a {
@@ -97,7 +102,7 @@ nav {
     padding: 1rem 1rem;
   }
   .burger:active {
-    box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff!important;
+    box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff !important;
   }
   .links {
     display: none;

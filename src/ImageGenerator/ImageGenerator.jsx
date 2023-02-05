@@ -8,7 +8,7 @@ import "./ImageGenerator.css";
 
 //------------------------Api configuration------------------------------------
 const configuration = new Configuration({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 

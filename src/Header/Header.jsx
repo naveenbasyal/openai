@@ -4,6 +4,7 @@ import Assistant from  "../Assistant/Assistant";
 import ImageGenerator from "../ImageGenerator/ImageGenerator";
 import "./Header.css";
 import Home from "../Home/Home";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -19,7 +20,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="links">
-          <NavLink to="/openai" path={<Home />}>
+          <NavLink to="/" path={<Home />}>
             Home
           </NavLink>
           <NavLink to="/assistant" path={<Assistant />}>
@@ -27,6 +28,9 @@ const Header = () => {
           </NavLink>
           <NavLink to="/imageGenerator" path={<ImageGenerator />}>
             Image Generator
+          </NavLink>
+          <NavLink to="/resumeBuilder" path={<ImageGenerator />}>
+            Resume Builder
           </NavLink>
         </div>
         {/* ---------------Burger------------- */}

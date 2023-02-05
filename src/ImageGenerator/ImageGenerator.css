@@ -4,8 +4,9 @@
   box-sizing: border-box;
 }
 html {
-  height: 100vh;
+  /* height: 100vh; */
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 body {
   background-color: #e6e7ee;
