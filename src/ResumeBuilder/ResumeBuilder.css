@@ -1,14 +1,89 @@
-.grid-container {
-  display: grid;
-  grid-template-columns:auto auto;
-  background-color: #2196f3;
-  padding: 10px;
-  /* gap: 2rem; */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif !important;
 }
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
+
+.previewContainer {
+  position: relative;
 }
+.previewContainer h4 {
+  background: radial-gradient(
+    circle farthest-corner at 22.4% 21.7%,
+    rgba(4, 189, 228, 1) 0%,
+    rgba(2, 83, 185, 1) 100.2%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+}
+.rangeslider-horizontal .rangeslider__handle:after {
+  display: none;
+}
+.rangeslider-horizontal {
+  height: 10px;
+}
+.rangeslider-horizontal .rangeslider__handle {
+  width: 15px;
+  height: 15px;
+}
+.rangeslider {
+  user-select: none !important;
+}
+.rangeslider-horizontal .rangeslider__fill {
+  background: radial-gradient(
+    circle farthest-corner at 22.4% 21.7%,
+    rgba(4, 189, 228, 1) 0%,
+    rgba(2, 83, 185, 1) 100.2%
+  );
+}
+.profileImage {
+  padding: 1rem;
+  position: relative;
+  border-radius: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.profileImage img {
+  padding: 1rem;
+  border-radius:100%;
+  height: 13rem;
+  width: 13rem;
+}
+.resume_left_side {
+  position: relative;
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+  /* background-color: #ececee; */
+}
+.resume_about {
+  margin: 3rem 2rem;
+  text-align: justify;
+  font-size: 1.1rem;
+}
+.resume_skills {
+  margin: 0rem 2rem;
+  text-align: justify;
+  font-size: 1.1rem;
+  width: 90%;
+}
+.resume_contact {
+  display: flex;
+  padding: 2rem 0rem;
+  flex-direction: column;
+  margin: 0rem 2rem;
+  font-size: 1.1rem;
+  width: 90%;
+}
+.resume_contact i {
+  margin: 0.7rem 0rem;
+  border-radius: 50%;
+  display: flex;
+}
+
