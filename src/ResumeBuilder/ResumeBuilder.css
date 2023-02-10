@@ -49,7 +49,7 @@
 }
 .profileImage img {
   padding: 1rem;
-  border-radius:100%;
+  border-radius: 100%;
   height: 13rem;
   width: 13rem;
 }
@@ -58,22 +58,31 @@
   padding: 5rem 2rem;
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
-  /* background-color: #ececee; */
+  box-shadow: 2px 0px 4px #d0d3dc;
 }
 .resume_about {
+  position: relative;
   margin: 3rem 2rem;
   text-align: justify;
   font-size: 1.1rem;
+  /* background-col or: red; */
+  min-height: 12rem;
+}
+.resume_about p {
+  position: absolute;
 }
 .resume_skills {
+  position: relative;
   margin: 0rem 2rem;
   text-align: justify;
   font-size: 1.1rem;
-  width: 90%;
+}
+.resume_skills .innerSkills {
+  /* position: absolute; */
+  width: 100%;
 }
 .resume_contact {
+  position: relative;
   display: flex;
   padding: 2rem 0rem;
   flex-direction: column;
@@ -86,4 +95,45 @@
   border-radius: 50%;
   display: flex;
 }
-
+.resume_right_side {
+  padding: 5rem 2rem;
+}
+.headerName {
+  margin-top: 2rem 0rem;
+  position: relative;
+  padding: 1rem 2rem;
+  min-height: 17.5rem;
+}
+.resume_fname {
+  font-size: 4rem;
+  color: #576681;
+  line-height: 0.8;
+  letter-spacing: 2px;
+}
+.resume_lname {
+  font-size: 4rem;
+  font-weight: bolder;
+  color: #576681;
+  letter-spacing: 2px;
+}
+.resume_profession {
+  font-size: 1.8rem;
+  color: #616c80;
+}
+.resume_education {
+  padding: 0 2rem;
+}
+.resume_school {
+  position: relative;
+  margin: 1rem 0;
+}
+.resume_school span {
+  font-size: 1.4rem;
+  color: #576681;
+  margin: 0 1rem;
+  text-transform: capitalize;
+}
+.holder {
+  display: flex;
+  flex-direction: column;
+}

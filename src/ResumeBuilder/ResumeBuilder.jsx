@@ -12,7 +12,7 @@ const ResumeBuilder = () => {
   const [links, setLinks] = useState([]);
   const [image, setImage] = useState({});
   const [description, setDescription] = useState("");
-  const [currentPage, setCurrentPage] = useState("preview");
+  const [currentPage, setCurrentPage] = useState("basicInfo");
   const [skillLevel_1, setSkillLevel_1] = useState(0);
   const [skillLevel_2, setSkillLevel_2] = useState(0);
   const [skillLevel_3, setSkillLevel_3] = useState(0);
@@ -36,7 +36,7 @@ const ResumeBuilder = () => {
       about: form.about.value,
       image: image,
     });
-    setCurrentPage("skills");
+    setCurrentPage("education");
   };
 
   // ----------------Education Section-------------
@@ -322,76 +322,93 @@ const ResumeBuilder = () => {
           </Col>
         </Row>
       )}
+      {/* ----------------------------------Preview----------------------------- */}
       {currentPage === "preview" && (
-        <div className="container previewContainer ">
-          <Row className="border my-5">
-            <div className="col-4 resume_left_side shadow-out">
+        <div className="container previewContainer col-lg-7 col-sm-12">
+          <Row className="border my-5 shadow-out">
+            {/* --------------Left Side--------- */}
+            <div className="col-5 resume_left_side ">
               <div className="profileImage text-center">
-                <img src={basicInfo.image} className="shadow-out" alt="profileImg" />
+                <img
+                  src={basicInfo.image}
+                  className="shadow-out"
+                  alt="profileImg"
+                />
               </div>
               <div className="resume_about">
                 <h4>ABOUT</h4>
                 {basicInfo.about}
+                
               </div>
               <div className="resume_skills">
-                <h4>SKILLS</h4>
-                <Form.Label>{skill1}</Form.Label>
-                <Rangeslider
-                  min={0}
-                  max={100}
-                  value={skillLevel_1}
-                  className="shadow-in"
-                />
-                <Form.Label>{skill2}</Form.Label>
-                <Rangeslider
-                  min={0}
-                  max={100}
-                  value={skillLevel_2}
-                  className="shadow-in"
-                />
-                <Form.Label>{skill3}</Form.Label>
-                <Rangeslider
-                  min={0}
-                  max={100}
-                  value={skillLevel_3}
-                  className="shadow-in"
-                />
+                <div className="innerSkills">
+                  <h4 className="text-start">SKILLS</h4>
+                  <Form.Label>{skill1}</Form.Label>
+                  <Rangeslider
+                    min={0}
+                    max={100}
+                    value={skillLevel_1}
+                    className="shadow-in"
+                  />
+                  <Form.Label>{skill2}</Form.Label>
+                  <Rangeslider
+                    min={0}
+                    max={100}
+                    value={skillLevel_2}
+                    className="shadow-in"
+                  />
+                  <Form.Label>{skill3}</Form.Label>
+                  <Rangeslider
+                    min={0}
+                    max={100}
+                    value={skillLevel_3}
+                    className="shadow-in"
+                  />
+                </div>
               </div>
               <div className="resume_contact flex-start">
                 <h4>Contact</h4>
-                <i class="fa-solid fa-mobile-screen-button px-3 ">
+                <i class="fa fa-solid fa-mobile-screen-button px-3 ">
                   <span className="mx-3">{basicInfo.phone}</span>
                 </i>
-                <i class="fa-solid fa-envelope px-3">
+                <i class="fa fa-solid fa-envelope px-3">
                   <span className="mx-3">{basicInfo.email}</span>
                 </i>
                 <i class="fa-solid fa-location-dot px-3">
-                  <span className="mx-3">{basicInfo.city}, {basicInfo.country}</span>
+                  <span className="mx-3">
+                    {basicInfo.city}, {basicInfo.country}
+                  </span>
+
                 </i>
                 <i class="fa-sharp fa-regular fa-earth-americas px-3">
                   <span className="mx-3">{basicInfo.pincode}</span>
                 </i>
               </div>
             </div>
-            <div className="col-8 resume_right_side py-4">
-              <div className="resume_fname">Naveen</div>
-              <div className="resume_lname">Basyal</div>
-              <div className="resume_profession">Web Developer</div>
-              <div className="education">
-                <div className="school d-flex">
-                  <span className="year">2018-2020</span>
-                  <div>
-                    <span className="courseName">Non-Medical</span>
-                    <span className="collegeName">st carmel</span>
-                  </div>
+            {/* ------------Right Side-------- */}
+            <div className="col-6 resume_right_side">
+              <div className="headerName">
+                <div className="resume_fname">{basicInfo.fname}</div>
+                <div className="resume_lname">{basicInfo.lname}</div>
+                <div className="resume_profession">{basicInfo.profession}</div>
+              </div>
+              <div className="resume_education">
+                <h4 >Education</h4>
+                <div className="resume_school d-flex">
+                  <span className="year">{educationDetails.school_startyear}-{educationDetails.school_endyear}</span>
+                  <span className="holder">
+                    <span className="courseName">{educationDetails.schoolCourse}</span>
+                    <span className="collegeName">{educationDetails.schoolName}</span>
+                  </span>
                 </div>
-                <div className="school d-flex">
-                  <span className="year">2018-2020</span>
-                  <div>
-                    <span className="courseName">Non-Medical</span>
-                    <span className="collegeName">st carmel</span>
-                  </div>
+                <div className="resume_school d-flex">
+                  <span className="year">{educationDetails.startYear}-{educationDetails.endYear}</span>
+                  <span className="holder">
+                    <span className="courseName">{educationDetails.collegeCourse}</span>
+                    <span className="collegeName">{educationDetails.collegeName}</span>
+                  </span>
                 </div>
+                
               </div>
             </div>
           </Row>
