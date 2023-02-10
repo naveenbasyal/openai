@@ -12,7 +12,7 @@ const ResumeBuilder = () => {
   const [links, setLinks] = useState([]);
   const [image, setImage] = useState({});
   const [description, setDescription] = useState("");
-  const [currentPage, setCurrentPage] = useState("basicInfo");
+  const [currentPage, setCurrentPage] = useState("links");
   const [skillLevel_1, setSkillLevel_1] = useState(0);
   const [skillLevel_2, setSkillLevel_2] = useState(0);
   const [skillLevel_3, setSkillLevel_3] = useState(0);
@@ -72,8 +72,28 @@ const ResumeBuilder = () => {
   const handleSkillsSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-
+    if (!skillLevel_1) {
+      return alert("Please set a Skill Level for Skill 1");
+    }
+    if (!skillLevel_2) {
+      return alert("Please set a Skill Level for Skill 2");
+    }
+    if (!skillLevel_3) {
+      return alert("Please set a Skill Level for Skill 3");
+    }
     setCurrentPage("preview");
+  };
+
+  const handleBackButton = () => {
+    if (currentPage === "preview") {
+      setCurrentPage("links");
+    } else if (currentPage === "links") {
+      setCurrentPage("skills");
+    } else if (currentPage === "skills") {
+      setCurrentPage("education");
+    } else if (currentPage === "education") {
+      setCurrentPage("basicInfo");
+    }
   };
 
   return (
@@ -156,7 +176,6 @@ const ResumeBuilder = () => {
                   type="text"
                   name="schoolName"
                   required
-                  placeholder="ex:- NonMedical, Medical, Commerce, Arts etc."
                 />
               </Form.Group>
               <Form.Group controlId="formDegree">
@@ -196,6 +215,7 @@ const ResumeBuilder = () => {
               <Form.Group controlId="formEndYear">
                 <Form.Label>College End Year</Form.Label>
                 <Form.Control type="number" name="endYear" required />
+                <Button onClick={handleBackButton}>Previous</Button>
               </Form.Group>
               <Button type="submit">Next</Button>
             </Form>
@@ -290,6 +310,7 @@ const ResumeBuilder = () => {
                 onChange={(value) => setSkillLevel_3(value)}
               />
               <Form.Text muted>More Skills ? Combine them !!</Form.Text>
+              <Button onClick={handleBackButton}>Previous</Button>
 
               <Button type="submit">Next</Button>
             </Form>
@@ -317,6 +338,8 @@ const ResumeBuilder = () => {
                 <Form.Label>E-mail</Form.Label>
                 <Form.Control type="email" name="mail" required />
               </Form.Group>
+              <Button onClick={handleBackButton}>Previous</Button>
+
               <Button type="submit">Next</Button>
             </Form>
           </Col>
@@ -338,7 +361,6 @@ const ResumeBuilder = () => {
               <div className="resume_about">
                 <h4>ABOUT</h4>
                 {basicInfo.about}
-                
               </div>
               <div className="resume_skills">
                 <div className="innerSkills">
@@ -378,7 +400,6 @@ const ResumeBuilder = () => {
                   <span className="mx-3">
                     {basicInfo.city}, {basicInfo.country}
                   </span>
-
                 </i>
                 <i class="fa-sharp fa-regular fa-earth-americas px-3">
                   <span className="mx-3">{basicInfo.pincode}</span>
@@ -391,27 +412,48 @@ const ResumeBuilder = () => {
                 <div className="resume_fname">{basicInfo.fname}</div>
                 <div className="resume_lname">{basicInfo.lname}</div>
                 <div className="resume_profession">{basicInfo.profession}</div>
+                <div className="resume_links">
+                  <a href={links.linkedin}>lin</a>
+                  <a href={links.twitter}>lin</a>
+                  <a href={links.github}>lin</a>
+                  <a href={links.mail}>lin</a>
+                </div>
+
               </div>
               <div className="resume_education">
-                <h4 >Education</h4>
+                <h4>Education</h4>
                 <div className="resume_school d-flex">
-                  <span className="year">{educationDetails.school_startyear}-{educationDetails.school_endyear}</span>
+                  <span className="year">
+                    {educationDetails.school_startyear}-
+                    {educationDetails.school_endyear}
+                  </span>
                   <span className="holder">
-                    <span className="courseName">{educationDetails.schoolCourse}</span>
-                    <span className="collegeName">{educationDetails.schoolName}</span>
+                    <span className="courseName">
+                      {educationDetails.schoolCourse}
+                    </span>
+                    <span className="collegeName">
+                      {educationDetails.schoolName}
+                    </span>
                   </span>
                 </div>
                 <div className="resume_school d-flex">
-                  <span className="year">{educationDetails.startYear}-{educationDetails.endYear}</span>
+                  <span className="year">
+                    {educationDetails.startYear}-{educationDetails.endYear}
+                  </span>
                   <span className="holder">
-                    <span className="courseName">{educationDetails.collegeCourse}</span>
-                    <span className="collegeName">{educationDetails.collegeName}</span>
+                    <span className="courseName">
+                      {educationDetails.collegeCourse}
+                    </span>
+                    <span className="collegeName">
+                      {educationDetails.collegeName}
+                    </span>
                   </span>
                 </div>
-                
               </div>
             </div>
           </Row>
+          <Button onClick={handleBackButton}>Previous</Button>
+
         </div>
       )}
     </Container>
