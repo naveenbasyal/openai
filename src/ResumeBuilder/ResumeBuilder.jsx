@@ -401,15 +401,17 @@ const ResumeBuilder = () => {
             {/* ------------Right Side-------- */}
             <div className="col-7 resume_right_side">
               <div className="headerName">
-                <div className="resume_fname">{basicInfo.fname}</div>
-                <div className="resume_lname">{basicInfo.lname}</div>
+                <div className="fullName">
+                  <div className="resume_fname">{basicInfo.fname}</div>
+                  <div className="resume_lname">{basicInfo.lname}</div>
+                </div>
                 <div className="resume_profession">{basicInfo.profession}</div>
-                <div className="resume_links">
+                {/* <div className="resume_links my-4">
                   <a href={links.linkedin}>lin</a>
                   <a href={links.twitter}>lin</a>
                   <a href={links.github}>lin</a>
-                  <a href={links.mail}>lin</a>
-                </div>
+                  // <a href={links.mail}>lin</a>
+                </div> */}
               </div>
               <div className="resume_education">
                 <h4>Education</h4>
