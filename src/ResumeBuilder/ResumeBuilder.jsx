@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Row,Container,Col,Form,Button } from "react-bootstrap";
+import { Row, Container, Col, Form, Button } from "react-bootstrap";
 import "react-rangeslider/lib/index.css";
 import "./ResumeBuilder.css";
-import Rangeslider from "react-rangeslider/lib/Rangeslider.js"
+import Rangeslider from "react-rangeslider/lib/Rangeslider.js";
 
 const ResumeBuilder = () => {
   const [basicInfo, setBasicInfo] = useState({});
@@ -89,67 +89,124 @@ const ResumeBuilder = () => {
   };
 
   return (
-    <Container>
+    <Container className="py-4 my-4">
       {/* ------------------------------Basic Info------------------------------- */}
       {currentPage === "basicInfo" && (
         <Row>
           <Col>
-            <Form onSubmit={handleBasicInfo}>
-              <Form.Text>Let’s start with your header</Form.Text>
-              <Form.Text>
-                Include your full name and at least one way for employers to
-                reach you.
-              </Form.Text>
-              <Form.Group controlId="formImage">
-                <Form.Label>Profile Picture</Form.Label>
-                <Form.Control
-                  type="file"
-                  name="image"
-                  onChange={(event) =>
-                    setImage(URL.createObjectURL(event.target.files[0]))
-                  }
-                />
-              </Form.Group>
-
-              <Form.Group controlId="formName">
-                <Form.Label>FIRST NAME</Form.Label>
-                <Form.Control type="text" name="fname" required />
-              </Form.Group>
-              <Form.Group controlId="formName">
-                <Form.Label>SURNAME</Form.Label>
-                <Form.Control type="text" name="lname" required />
-              </Form.Group>
-              <Form.Group controlId="formName">
-                <Form.Label>PROFESSION</Form.Label>
-                <Form.Control type="text" name="profession" required />
-              </Form.Group>
-              <Form.Group controlId="formName">
-                <Form.Label>CITY</Form.Label>
-                <Form.Control type="text" name="city" required />
-              </Form.Group>
-              <Form.Group controlId="formName">
-                <Form.Label>COUNTRY</Form.Label>
-                <Form.Control type="text" name="country" required />
-              </Form.Group>
-              <Form.Group controlId="formName">
-                <Form.Label>PIN CODE</Form.Label>
-                <Form.Control type="text" name="pincode" required />
-              </Form.Group>
-              <Form.Group controlId="formName">
-                <Form.Label>PHONE</Form.Label>
-                <Form.Control type="text" name="phone" required />
-              </Form.Group>
-              <Form.Group controlId="formName">
-                <Form.Label>E-MAIL</Form.Label>
-                <Form.Control type="text" name="email" required />
-              </Form.Group>
-              <Form.Group controlId="formName">
-                <Form.Label>About</Form.Label>
-                <Form.Control type="text" name="about" required />
-              </Form.Group>
-
-              <Button type="submit">Next</Button>
-            </Form>
+            <div className="form-container">
+              <Form onSubmit={handleBasicInfo}>
+                <Form.Text className="fs-2">
+                  Let’s start with your header
+                </Form.Text>{" "}
+                <Form.Text className="fs-2">
+                  Include your full name and at least one way for employers to
+                  reach you.
+                </Form.Text>
+                <Form.Group controlId="formImage">
+                  <Form.Label>Profile Picture</Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="image"
+                    className=""
+                    onChange={(event) =>
+                      setImage(URL.createObjectURL(event.target.files[0]))
+                    }
+                  />
+                </Form.Group>
+                <div className="form-inner-row">
+                  <Form.Group controlId="formName" className="me-2">
+                    <Form.Label>FIRST NAME</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="fname"
+                      className="form-control "
+                      required
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formName" className="ms-2">
+                    <Form.Label>SURNAME</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="lname"
+                      className="form-control "
+                      required
+                    />
+                  </Form.Group>
+                </div>
+                <Form.Group controlId="formName">
+                  <Form.Label>PROFESSION</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="profession"
+                    className="form-control "
+                    required
+                  />
+                </Form.Group>
+                <div className="form-inner-row">
+                  <Form.Group controlId="formName" className="me-2">
+                    <Form.Label>CITY</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="city"
+                      className="form-control"
+                      required
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formName" className="ms-2" style={{width:"30%"}}>
+                    <Form.Label>PIN CODE</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="pincode"
+                      className="form-control "
+                      required
+              
+                    />
+                  </Form.Group>
+                </div>
+                <Form.Group controlId="formName">
+                  <Form.Label>COUNTRY</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="country"
+                    className="form-control "
+                    required
+                  />
+                </Form.Group>
+                <div className="form-inner-row">
+                  <Form.Group controlId="formName" className="me-2">
+                    <Form.Label>PHONE</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="phone"
+                      className="form-control "
+                      required
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formName" className="ms-2">
+                    <Form.Label>E-MAIL</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="email"
+                      className="form-control "
+                      required
+                    />
+                  </Form.Group>
+                </div>
+                <Form.Group controlId="formName">
+                  <Form.Label>About</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="about"
+                    className="form-control "
+                    required
+                  />
+                </Form.Group>
+                <Button type="submit" className="next-btn shadow-out">
+                  Next
+                </Button>
+              </Form>
+            </div>
           </Col>
         </Row>
       )}
@@ -244,7 +301,7 @@ const ResumeBuilder = () => {
                   value={skillLevel_1}
                   onChange={(e) => setSkillLevel_1(e)}
                 />
-                
+
                 <Form.Label>Skill 2</Form.Label>
                 <Form.Control
                   type="text"
@@ -340,15 +397,11 @@ const ResumeBuilder = () => {
       {/* ----------------------------------Preview----------------------------- */}
       {currentPage === "preview" && (
         <div className="container previewContainer col-lg-7 col-sm-12">
-          <Row className="border my-5 shadow-out">
+          <Row className="border my-5 out">
             {/* --------------Left Side--------- */}
             <div className="col-5 resume_left_side ">
               <div className="profileImage text-center">
-                <img
-                  src={basicInfo.image}
-                  className="shadow-out"
-                  alt="profileImg"
-                />
+                <img src={basicInfo.image} className="out" alt="profileImg" />
               </div>
               <div className="resume_about">
                 <h4>ABOUT</h4>
@@ -362,21 +415,21 @@ const ResumeBuilder = () => {
                     min={0}
                     max={100}
                     value={skillLevel_1}
-                    className="shadow-in"
+                    className="in"
                   />
                   <Form.Label>{skill2}</Form.Label>
                   <Rangeslider
                     min={0}
                     max={100}
                     value={skillLevel_2}
-                    className="shadow-in"
+                    className="in"
                   />
                   <Form.Label>{skill3}</Form.Label>
                   <Rangeslider
                     min={0}
                     max={100}
                     value={skillLevel_3}
-                    className="shadow-in"
+                    className="in"
                   />
                 </div>
               </div>
