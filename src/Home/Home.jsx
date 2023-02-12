@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  console.log(import.meta.env.VITE_API_KEY);
   const [btnState, setbtnState] = useState(false);
 
   function changeClass() {
