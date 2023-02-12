@@ -11,7 +11,7 @@ import { FaTelegramPlane, FaTimes, FaMicrophone } from "react-icons/fa";
 //---------------API Configuration--------------------------
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: import.meta.env.VITE_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
