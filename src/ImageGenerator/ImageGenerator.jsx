@@ -9,7 +9,7 @@ import { FaMicrophone, FaTimes } from "react-icons/fa";
 
 //------------------------Api configuration------------------------------------
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: import.meta.env.VITE_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
