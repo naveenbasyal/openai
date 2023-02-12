@@ -11,7 +11,7 @@ import { FaTelegramPlane, FaTimes, FaMicrophone } from "react-icons/fa";
 //---------------API Configuration--------------------------
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
@@ -78,6 +78,18 @@ const Assistant = () => {
   return (
     <div className="chatAssitant">
       <div className="response container-fluid" ref={responseContainerRef}>
+        <div className="fs-3 user shadow-out my-2 mx-2">
+          <div className="userImage">
+            <img src="public\images\user.png" alt="userImage" />
+          </div>
+          <div className="userMessage">Hi There</div>
+        </div>
+        <div className="fs-3 user my-5 mx-2">
+          <div className="userImage">
+            <img src="public\images\bot.png" alt="botImage" />
+          </div>
+          <div className="userMessage">Search anything...</div>
+        </div>
         {message.map((item, index) => (
           <div key={index}>
             <div className="fs-3 user shadow-out my-2 mx-2">
@@ -145,7 +157,7 @@ const Assistant = () => {
               <ImpulseSpinner size={20} color="red" />
             ) : (
               <div className="textClip fs-2  mx-2 mic text-dark">
-                <FaMicrophone/>
+                <FaMicrophone />
               </div>
             )}
           </div>
