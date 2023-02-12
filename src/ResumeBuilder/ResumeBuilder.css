@@ -99,12 +99,19 @@
   padding: 5rem 2rem;
 }
 .headerName {
-  margin-top: 2rem 0rem;
+  margin-top: 2rem;
   position: relative;
   padding: 1rem 2rem;
-  min-height: 17.5rem;
+  max-height: 16rem;
+  min-height: 16rem;
+}
+.fullName{
+  position: relative;
+  width: 100%;
 }
 .resume_fname {
+  width: 100%;
+  word-wrap: break-word;
   font-size: 4rem;
   color: #576681;
   line-height: 0.8;
