@@ -1,8 +1,15 @@
 import React, { useState } from "react";
+
 import { Row, Container, Col, Form, Button } from "react-bootstrap";
 import "react-rangeslider/lib/index.css";
 import "./ResumeBuilder.css";
 import Rangeslider from "react-rangeslider/lib/Rangeslider.js";
+
+import { Row,Container,Col,Form,Button } from "react-bootstrap";
+import "react-rangeslider/lib/index.css";
+import "./ResumeBuilder.css";
+import Rangeslider from "react-rangeslider/lib/Rangeslider.js"
+
 
 const ResumeBuilder = () => {
   const [basicInfo, setBasicInfo] = useState({});
@@ -90,10 +97,14 @@ const ResumeBuilder = () => {
 
   return (
     <Container className="py-4 my-4">
+
+    <Container>
+
       {/* ------------------------------Basic Info------------------------------- */}
       {currentPage === "basicInfo" && (
         <Row>
           <Col>
+
             <div className="form-container">
               <Form onSubmit={handleBasicInfo}>
                 <Form.Text className="fs-2">
@@ -207,6 +218,64 @@ const ResumeBuilder = () => {
                 </Button>
               </Form>
             </div>
+
+            <Form onSubmit={handleBasicInfo}>
+              <Form.Text>Let’s start with your header</Form.Text>
+              <Form.Text>
+                Include your full name and at least one way for employers to
+                reach you.
+              </Form.Text>
+              <Form.Group controlId="formImage">
+                <Form.Label>Profile Picture</Form.Label>
+                <Form.Control
+                  type="file"
+                  name="image"
+                  onChange={(event) =>
+                    setImage(URL.createObjectURL(event.target.files[0]))
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group controlId="formName">
+                <Form.Label>FIRST NAME</Form.Label>
+                <Form.Control type="text" name="fname" required />
+              </Form.Group>
+              <Form.Group controlId="formName">
+                <Form.Label>SURNAME</Form.Label>
+                <Form.Control type="text" name="lname" required />
+              </Form.Group>
+              <Form.Group controlId="formName">
+                <Form.Label>PROFESSION</Form.Label>
+                <Form.Control type="text" name="profession" required />
+              </Form.Group>
+              <Form.Group controlId="formName">
+                <Form.Label>CITY</Form.Label>
+                <Form.Control type="text" name="city" required />
+              </Form.Group>
+              <Form.Group controlId="formName">
+                <Form.Label>COUNTRY</Form.Label>
+                <Form.Control type="text" name="country" required />
+              </Form.Group>
+              <Form.Group controlId="formName">
+                <Form.Label>PIN CODE</Form.Label>
+                <Form.Control type="text" name="pincode" required />
+              </Form.Group>
+              <Form.Group controlId="formName">
+                <Form.Label>PHONE</Form.Label>
+                <Form.Control type="text" name="phone" required />
+              </Form.Group>
+              <Form.Group controlId="formName">
+                <Form.Label>E-MAIL</Form.Label>
+                <Form.Control type="text" name="email" required />
+              </Form.Group>
+              <Form.Group controlId="formName">
+                <Form.Label>About</Form.Label>
+                <Form.Control type="text" name="about" required />
+              </Form.Group>
+
+              <Button type="submit">Next</Button>
+            </Form>
+
           </Col>
         </Row>
       )}
@@ -397,11 +466,23 @@ const ResumeBuilder = () => {
       {/* ----------------------------------Preview----------------------------- */}
       {currentPage === "preview" && (
         <div className="container previewContainer col-lg-7 col-sm-12">
+
           <Row className="border my-5 out">
             {/* --------------Left Side--------- */}
             <div className="col-5 resume_left_side ">
               <div className="profileImage text-center">
                 <img src={basicInfo.image} className="out" alt="profileImg" />
+
+          <Row className="border my-5 shadow-out">
+            {/* --------------Left Side--------- */}
+            <div className="col-5 resume_left_side ">
+              <div className="profileImage text-center">
+                <img
+                  src={basicInfo.image}
+                  className="shadow-out"
+                  alt="profileImg"
+                />
+
               </div>
               <div className="resume_about">
                 <h4>ABOUT</h4>
@@ -415,21 +496,33 @@ const ResumeBuilder = () => {
                     min={0}
                     max={100}
                     value={skillLevel_1}
+
                     className="in"
+
+                    className="shadow-in"
+
                   />
                   <Form.Label>{skill2}</Form.Label>
                   <Rangeslider
                     min={0}
                     max={100}
                     value={skillLevel_2}
+
                     className="in"
+
+                    className="shadow-in"
+
                   />
                   <Form.Label>{skill3}</Form.Label>
                   <Rangeslider
                     min={0}
                     max={100}
                     value={skillLevel_3}
+
                     className="in"
+
+                    className="shadow-in"
+
                   />
                 </div>
               </div>
@@ -454,6 +547,7 @@ const ResumeBuilder = () => {
             {/* ------------Right Side-------- */}
             <div className="col-7 resume_right_side">
               <div className="headerName">
+
                 <div className="resume_fname">{basicInfo.fname}</div>
                 <div className="resume_lname">{basicInfo.lname}</div>
                 <div className="resume_profession">{basicInfo.profession}</div>
@@ -463,6 +557,19 @@ const ResumeBuilder = () => {
                   <a href={links.github}>lin</a>
                   <a href={links.mail}>lin</a>
                 </div>
+
+                <div className="fullName">
+                  <div className="resume_fname">{basicInfo.fname}</div>
+                  <div className="resume_lname">{basicInfo.lname}</div>
+                </div>
+                <div className="resume_profession">{basicInfo.profession}</div>
+                {/* <div className="resume_links my-4">
+                  <a href={links.linkedin}>lin</a>
+                  <a href={links.twitter}>lin</a>
+                  <a href={links.github}>lin</a>
+                  // <a href={links.mail}>lin</a>
+                </div> */}
+
               </div>
               <div className="resume_education">
                 <h4>Education</h4>
