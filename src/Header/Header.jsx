@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import Assistant from  "../Assistant/Assistant";
+import Assistant from "../Assistant/Assistant";
 import ImageGenerator from "../ImageGenerator/ImageGenerator";
+import ResumeBuilder from "../ResumeBuilder/ResumeBuilder";
 import "./Header.css";
 import Home from "../Home/Home";
 
@@ -9,10 +10,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
-  
   return (
     <>
-      <nav className="text-center" >
+      <nav className="text-center">
         <div className="logo ">
           <Link to="/" className="brandon">
             <span className="textClip">D</span>ALLE &&nbsp;
@@ -29,15 +29,12 @@ const Header = () => {
           <NavLink to="/imageGenerator" path={<ImageGenerator />}>
             Image Generator
           </NavLink>
-          <NavLink to="/resumeBuilder" path={<ImageGenerator />}>
+          <NavLink to="/resumeBuilder" path={<ResumeBuilder />}>
             Resume Builder
           </NavLink>
         </div>
         {/* ---------------Burger------------- */}
-        <div
-          className="burger shadow-out text-center "
-          onClick={toggle}
-        >
+        <div className="burger shadow-out text-center " onClick={toggle}>
           <i class="fa-solid fa-bars"></i>
         </div>
       </nav>
@@ -49,10 +46,18 @@ const Header = () => {
         <NavLink onClick={() => setIsOpen(false)} to="/" path={<Home />}>
           Home
         </NavLink>
-        <NavLink onClick={() => setIsOpen(false)} to="/assistant" path={<Assistant />}>
+        <NavLink
+          onClick={() => setIsOpen(false)}
+          to="/assistant"
+          path={<Assistant />}
+        >
           Chat Assistant
         </NavLink>
-        <NavLink onClick={() => setIsOpen(false)} to="/imageGenerator" path={<ImageGenerator />}>
+        <NavLink
+          onClick={() => setIsOpen(false)}
+          to="/imageGenerator"
+          path={<ImageGenerator />}
+        >
           Image Generator
         </NavLink>
       </div>
