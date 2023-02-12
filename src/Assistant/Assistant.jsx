@@ -6,6 +6,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import "./Assistant.css";
+import { FaTelegramPlane, FaTimes, FaMicrophone } from "react-icons/fa";
 
 //---------------API Configuration--------------------------
 
@@ -109,10 +110,12 @@ const Assistant = () => {
             placeholder="search anything . . ."
           />
           {userInput !== "" ? (
-            <i
+            <div
+              class="clearBtn textClip px-5 fs-2 text-danger"
               onClick={clearInput}
-              class="fa-solid fa-times py-4 clearButton "
-            />
+            >
+              <FaTimes />
+            </div>
           ) : null}
 
           {/* --------------SendButton--------- */}
@@ -125,7 +128,9 @@ const Assistant = () => {
             {loading ? (
               <RotateSpinner size={25} color="#000" />
             ) : (
-              <i class="fa-solid fa-paper-plane textClip px-5 fs-2"></i>
+              <div className="textClip px-3 fs-2 text-primary">
+                <FaTelegramPlane />
+              </div>
             )}
           </div>
           {/* --------------Microphone--------- */}
@@ -139,7 +144,9 @@ const Assistant = () => {
             {listening ? (
               <ImpulseSpinner size={20} color="red" />
             ) : (
-              <i class="fa-solid textClip fa-microphone mic" />
+              <div className="textClip fs-2  mx-2 mic text-dark">
+                <FaMicrophone/>
+              </div>
             )}
           </div>
         </div>
