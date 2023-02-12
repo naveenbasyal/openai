@@ -1,14 +1,15 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Configuration, OpenAIApi } from "openai";
 import { RotateSpinner, ImpulseSpinner } from "react-spinners-kit";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import "./ImageGenerator.css";
+import { FaMicrophone, FaTimes } from "react-icons/fa";
 
 //------------------------Api configuration------------------------------------
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: import.meta.env.VITE_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
@@ -22,12 +23,11 @@ const ImageGenerator = () => {
   const [isEnlarged, setIsEnlarged] = useState(false); // for image to make bigger when clicked
 
   //---------------- Image Generation Funciton---------------
-  function overlay (){
+  function overlay() {
     setIsEnlarged(true);
-
   }
   const inputRef = useRef(null);
-  function handleClear () {
+  function handleClear() {
     setuserPrompt("");
     inputRef.current.focus();
   }
@@ -56,11 +56,15 @@ const ImageGenerator = () => {
         <div className="overlay shadow-out text-center">
           <div
             className="shadow-out textClip brandon overlay_button"
-            onClick={() => setIsEnlarged(false) } name="top"
+            onClick={() => setIsEnlarged(false)}
+            name="top"
           >
             Cancel
           </div>
-          <img src={imageUrl} className="enlarged-image shadow-in p-4 rounded-5" />
+          <img
+            src={imageUrl}
+            className="enlarged-image shadow-in p-4 rounded-5"
+          />
         </div>
       ) : null}
       {/* -------------------M a i n     R o w      S t a r t s ---------------------*/}
@@ -87,10 +91,12 @@ const ImageGenerator = () => {
             />
             {/* --------------------Clear Button----------------- */}
             {userPrompt !== "" ? (
-              <i
+              <div
                 onClick={handleClear}
-                className="fa-solid fa-times text-white clearButton px-4 d-flex align-items-center"
-              ></i>
+                className="clearButton" style={{color:"red !important"}}
+              >
+                <span className="text-danger"><FaTimes /></span>
+              </div>
             ) : null}
             {/* -------------------Microphone------------------- */}
             <div
@@ -103,7 +109,9 @@ const ImageGenerator = () => {
               {listening ? (
                 <ImpulseSpinner size={23} color="white" />
               ) : (
-                <i class="fa-solid fa-microphone mic" />
+                <div class="mic">
+                  <FaMicrophone />
+                </div>
               )}
             </div>
           </div>
@@ -185,8 +193,8 @@ const ImageGenerator = () => {
               </>
             ) : error ? ( // ---------Error Message ----------------
               <div className="text-color error brandon ">
-                <span className="text-danger">Error:</span> Please
-                Enter a Valid information
+                <span className="text-danger">Error:</span> Please Enter a Valid
+                information
               </div>
             ) : userPrompt === "" ? ( //-------------Search Info-----------
               <p className="textClip px-3 pop">

@@ -6,11 +6,12 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import "./Assistant.css";
+import { FaTelegramPlane, FaTimes, FaMicrophone } from "react-icons/fa";
 
 //---------------API Configuration--------------------------
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: import.meta.env.VITE_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
@@ -77,6 +78,18 @@ const Assistant = () => {
   return (
     <div className="chatAssitant">
       <div className="response container-fluid" ref={responseContainerRef}>
+        <div className="fs-3 user shadow-out my-2 mx-2">
+          <div className="userImage">
+            <img src="public\images\user.png" alt="userImage" />
+          </div>
+          <div className="userMessage">Hi There</div>
+        </div>
+        <div className="fs-3 user my-5 mx-2">
+          <div className="userImage">
+            <img src="public\images\bot.png" alt="botImage" />
+          </div>
+          <div className="userMessage">Search anything...</div>
+        </div>
         {message.map((item, index) => (
           <div key={index}>
             <div className="fs-3 user shadow-out my-2 mx-2">
@@ -109,10 +122,12 @@ const Assistant = () => {
             placeholder="search anything . . ."
           />
           {userInput !== "" ? (
-            <i
+            <div
+              class="clearBtn textClip px-5 fs-2 text-danger"
               onClick={clearInput}
-              class="fa-solid fa-times py-4 clearButton "
-            />
+            >
+              <FaTimes />
+            </div>
           ) : null}
 
           {/* --------------SendButton--------- */}
@@ -125,7 +140,9 @@ const Assistant = () => {
             {loading ? (
               <RotateSpinner size={25} color="#000" />
             ) : (
-              <i class="fa-solid fa-paper-plane textClip px-5 fs-2"></i>
+              <div className="textClip px-3 fs-2 text-primary">
+                <FaTelegramPlane />
+              </div>
             )}
           </div>
           {/* --------------Microphone--------- */}
@@ -139,7 +156,9 @@ const Assistant = () => {
             {listening ? (
               <ImpulseSpinner size={20} color="red" />
             ) : (
-              <i class="fa-solid textClip fa-microphone mic" />
+              <div className="textClip fs-2  mx-2 mic text-dark">
+                <FaMicrophone />
+              </div>
             )}
           </div>
         </div>

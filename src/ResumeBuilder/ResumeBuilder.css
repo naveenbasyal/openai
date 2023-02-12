@@ -24,6 +24,9 @@
 }
 .rangeslider-horizontal {
   height: 10px;
+  box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff !important;
+  border-radius: 10px;
+  cursor: pointer;
 }
 .rangeslider-horizontal .rangeslider__handle {
   width: 15px;
@@ -38,6 +41,8 @@
     rgba(4, 189, 228, 1) 0%,
     rgba(2, 83, 185, 1) 100.2%
   );
+  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff !important;
+  border-radius: 10px;
 }
 .profileImage {
   padding: 1rem;
@@ -81,6 +86,9 @@
   /* position: absolute; */
   width: 100%;
 }
+h1 {
+  font-size: 4rem !important;
+}
 .resume_contact {
   position: relative;
   display: flex;
@@ -94,17 +102,25 @@
   margin: 0.7rem 0rem;
   border-radius: 50%;
   display: flex;
+  word-wrap: break-word;
 }
 .resume_right_side {
   padding: 5rem 2rem;
 }
 .headerName {
-  margin-top: 2rem 0rem;
+  margin-top: 2rem;
   position: relative;
   padding: 1rem 2rem;
-  min-height: 17.5rem;
+  max-height: 16rem;
+  min-height: 16rem;
+}
+.fullName {
+  position: relative;
+  width: 100%;
 }
 .resume_fname {
+  width: 100%;
+  word-wrap: break-word;
   font-size: 4rem;
   color: #576681;
   line-height: 0.8;
@@ -136,4 +152,58 @@
 .holder {
   display: flex;
   flex-direction: column;
+}
+/* -------------------------------------------------------------------- */
+label {
+  font-size: 1.2rem !important;
+  font-weight: bold;
+  margin-bottom: 0 !important;
+  margin-top: 1rem;
+}
+
+.form-control {
+  height: 42px;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  padding-left: 1rem;
+  background-color: #e6e7ee;
+  border-bottom: 2px solid #576681;
+  border-radius: 0;
+}
+
+.form-control:focus,
+.form-control:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: #e6e7ee;
+}
+
+.form-inner-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-inner-row div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-inner-row .form-control {
+  width: 100%;
+}
+
+.next-btn {
+  height: 42px;
+  width: 120px;
+  margin: 1rem 0;
+  font-size: 1.2rem !important;
+}
+
+.form-control:focus {
+  box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff !important;
+  border-radius: 4px;
+  font-size: 1.5rem;
 }
