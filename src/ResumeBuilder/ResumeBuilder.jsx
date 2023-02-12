@@ -16,7 +16,7 @@ const ResumeBuilder = () => {
   const [skill1, setSkill1] = useState();
   const [skill2, setSkill2] = useState();
   const [skill3, setSkill3] = useState();
-  const [currentPage, setCurrentPage] = useState("skills");
+  const [currentPage, setCurrentPage] = useState("basicInfo");
 
   const resumeRef = useRef();
 
