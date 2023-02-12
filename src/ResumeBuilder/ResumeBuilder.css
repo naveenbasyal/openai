@@ -159,8 +159,8 @@ label {
 
 .form-control:focus,
 .form-control:active {
-  outline: none;
-  border: none;
+  outline: none !important;
+  box-shadow: none !important;
   background-color: #e6e7ee;
 }
 
