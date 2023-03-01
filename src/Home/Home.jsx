@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  console.log(import.meta.env.VITE_API_KEY);
   const [btnState, setbtnState] = useState(false);
 
   function changeClass() {
@@ -23,10 +22,10 @@ const Home = () => {
         style={{ width: "37rem" }}
       >
         <div className="card-body py-3 px-4 text-center ">
-          <div className="card-title brandon fw-bolder mx-4 text-start">
+          <div className="card-title display-1 fw-bolder mx-4 text-start">
             AI Chat/Voice Assistant
           </div>
-          <p className="card-text brandon fs-2 text-white my-3">
+          <p className="card-text  fs-2 text-white my-3">
             A large language model trained by&nbsp;
             <span className="textClip">OpenAI</span> to understand and respond
             to natural language inputs.
@@ -47,10 +46,10 @@ const Home = () => {
         style={{ width: "37rem" }}
       >
         <div className="card-body py-3 px-4 text-center ">
-          <div className="card-title brandon fw-bold text-light mx-4 text-start">
+          <div className="card-title  fw-bold text-light mx-4 text-start">
             Text to Image Generator
           </div>
-          <p className="card-text brandon fs-2 text-white my-3">
+          <p className="card-text  fs-2 text-white my-3">
             Convert words to images in seconds with&nbsp;&nbsp;
             <span className="textClip">DALL-E 's</span> free AI image generator.
           </p>

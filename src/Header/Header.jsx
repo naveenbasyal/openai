@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import Assistant from "../Assistant/Assistant";
 import ImageGenerator from "../ImageGenerator/ImageGenerator";
-import ResumeBuilder from "../ResumeBuilder/ResumeBuilder";
 import "./Header.css";
 import Home from "../Home/Home";
 
@@ -14,7 +13,7 @@ const Header = () => {
     <>
       <nav className="text-center">
         <div className="logo ">
-          <Link to="/" className="brandon">
+          <Link to="/" className="pop">
             <span className="textClip">D</span>ALLE &&nbsp;
             <span className="textClip">D</span>AVINCI
           </Link>
@@ -28,9 +27,6 @@ const Header = () => {
           </NavLink>
           <NavLink to="/imageGenerator" path={<ImageGenerator />}>
             Image Generator
-          </NavLink>
-          <NavLink to="/resumeBuilder" path={<ResumeBuilder />}>
-            Resume Builder
           </NavLink>
         </div>
         {/* ---------------Burger------------- */}

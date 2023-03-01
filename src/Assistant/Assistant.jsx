@@ -1,12 +1,13 @@
 import React, { useState, useRef } from "react";
 import { Configuration, OpenAIApi } from "openai";
-import { RotateSpinner, ImpulseSpinner } from "react-spinners-kit";
 import useSpeechSynthesis from "react-speech-kit/dist/useSpeechSynthesis";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import "./Assistant.css";
-import { FaTelegramPlane, FaTimes, FaMicrophone } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+
+import MainAreaAssistant from "../components/AssistantComponents/MainAreaAssistant";
 
 //---------------API Configuration--------------------------
 
@@ -39,18 +40,14 @@ const Assistant = () => {
       speak({ text: message, pitch: 3, rate: 1 });
     }
   }
-  // -------------Handle Delete functionality---------------
-  // function handleDelete() {
-  //   setMessage("Hi there , How can i help you ?");
-  //   window.speechSynthesis.cancel();
-  // }
+
   // --------------API CALLING_-----------------------
   async function callApi() {
+    setLoading("hi");
     if (!transcript && !userInput) {
-      setError("Error: ");
+      toast.error("Please Search Something !!");
       return;
     }
-    setLoading(true);
     try {
       const responseField = document.querySelector(".response");
       responseField.scrollTop = responseField.scrollHeight;
@@ -69,6 +66,7 @@ const Assistant = () => {
       speak({ text: response.data.choices[0].text });
     } catch (error) {
       setError(error);
+      toast(error);
       console.error(error);
     } finally {
       setLoading(false);
@@ -76,94 +74,23 @@ const Assistant = () => {
   }
 
   return (
-    <div className="chatAssitant">
-      <div className="response container-fluid" ref={responseContainerRef}>
-        <div className="fs-3 user shadow-out my-2 mx-2">
-          <div className="userImage">
-            <img src="public\images\user.png" alt="userImage" />
-          </div>
-          <div className="userMessage">Hi There</div>
-        </div>
-        <div className="fs-3 user my-5 mx-2">
-          <div className="userImage">
-            <img src="public\images\bot.png" alt="botImage" />
-          </div>
-          <div className="userMessage">Search anything...</div>
-        </div>
-        {message.map((item, index) => (
-          <div key={index}>
-            <div className="fs-3 user shadow-out my-2 mx-2">
-              <div className="userImage">
-                <img src="public\images\user.png" alt="userImage" />
-              </div>
-              <div className="userMessage">{item.userInput}</div>
-            </div>
-            <div className="fs-3 bot">
-              <div className="botImage">
-                <img src="public\images\bot.png" alt="botImage" />
-              </div>
-              <div className="botMessage">
-                {item.response.split("\n").map((line, index) => (
-                  <p key={index}>{line}</p>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* ---------------Input Field----------- */}
-      <div className="bottom">
-        <div className="input-group">
-          <input
-            className="jsf py-3 px-4"
-            ref={inputRef}
-            onChange={(e) => setUserInput(e.target.value)}
-            value={transcript || userInput}
-            placeholder="search anything . . ."
-          />
-          {userInput !== "" ? (
-            <div
-              class="clearBtn textClip px-5 fs-2 text-danger"
-              onClick={clearInput}
-            >
-              <FaTimes />
-            </div>
-          ) : null}
-
-          {/* --------------SendButton--------- */}
-          <div
-            className={`sendButton p-4 text-color ${
-              listening ? "link_active" : null
-            }`}
-            onClick={callApi}
-          >
-            {loading ? (
-              <RotateSpinner size={25} color="#000" />
-            ) : (
-              <div className="textClip px-3 fs-2 text-primary">
-                <FaTelegramPlane />
-              </div>
-            )}
-          </div>
-          {/* --------------Microphone--------- */}
-          <div
-            className={`microphone p-4 shadow-out text-color ${
-              listening ? "link_active" : null
-            }`}
-            onClick={SpeechRecognition.startListening}
-            disabled={listening}
-          >
-            {listening ? (
-              <ImpulseSpinner size={20} color="red" />
-            ) : (
-              <div className="textClip fs-2  mx-2 mic text-dark">
-                <FaMicrophone />
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+     
+      <MainAreaAssistant
+        responseContainerRef={responseContainerRef}
+        transcript={transcript}
+        message={message}
+        userInput={userInput}
+        clearInput={clearInput}
+        callApi={callApi}
+        loading={loading}
+        listening={listening}
+        SpeechRecognition={SpeechRecognition}
+        inputRef={inputRef}
+        error={error}
+        setUserInput={setUserInput}
+      />
+    </>
   );
 };
 

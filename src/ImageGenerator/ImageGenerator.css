@@ -154,6 +154,9 @@ body {
   background-color: #e6e7ee;
 
 }
+.clearBtn{
+  cursor: pointer;
+}
 .enlarged-image {
   background-color: rgba(255, 255, 255, 0.69);
   min-width: 45%;
