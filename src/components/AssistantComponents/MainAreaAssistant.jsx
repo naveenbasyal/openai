@@ -26,13 +26,13 @@ const MainAreaAssistant = ({
           <ToastContainer position="bottom-right" />
           <div className="fs-3 user shadow-out my-2 mx-2">
             <div className="userImage">
-              <img src="public\images\user.png" alt="userImage" />
+              <img src="/images/user.png" alt="userImage" />
             </div>
             <div className="userMessage">Hi There</div>
           </div>
           <div className="fs-3 user my-5 mx-2">
             <div className="userImage">
-              <img src="public\images\bot.png" alt="botImage" />
+              <img src="/images/bot.png" alt="botImage" />
             </div>
             <div className="userMessage">Search anything...</div>
           </div>

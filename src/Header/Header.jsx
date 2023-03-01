@@ -31,7 +31,7 @@ const Header = () => {
         </div>
         {/* ---------------Burger------------- */}
         <div className="burger shadow-out text-center " onClick={toggle}>
-          <i class="fa-solid fa-bars"></i>
+          <i className="fa-solid fa-bars"></i>
         </div>
       </nav>
       <div
