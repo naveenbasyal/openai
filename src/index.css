@@ -1,0 +1,7 @@
+.center{
+    display: grid;
+    place-items: center;
+}
+.clearButton{
+    padding: .8rem 0.6rem!important;
+}

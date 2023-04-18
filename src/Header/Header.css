@@ -107,6 +107,9 @@ nav {
   .links {
     display: none;
   }
+  .logo a {
+    padding: 0!important;
+  }
   .links_mobile {
     display: flex;
     flex-direction: column;

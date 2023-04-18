@@ -43,12 +43,12 @@ const Assistant = () => {
 
   // --------------API CALLING_-----------------------
   async function callApi() {
-    setLoading("hi");
     if (!transcript && !userInput) {
       toast.error("Please Search Something !!");
       return;
     }
     try {
+      setLoading(true);
       const responseField = document.querySelector(".response");
       responseField.scrollTop = responseField.scrollHeight;
       window.scrollBy(0, 1000);
@@ -63,19 +63,18 @@ const Assistant = () => {
         ...message,
         { userInput, response: response.data.choices[0].text },
       ]);
+      setLoading(false);
+
       speak({ text: response.data.choices[0].text });
     } catch (error) {
       setError(error);
       toast(error);
       console.error(error);
-    } finally {
-      setLoading(false);
     }
   }
 
   return (
     <>
-     
       <MainAreaAssistant
         responseContainerRef={responseContainerRef}
         transcript={transcript}

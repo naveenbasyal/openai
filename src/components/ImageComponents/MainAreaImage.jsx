@@ -31,10 +31,10 @@ const MainAreaImage = ({
             Convert words to images in seconds with DALL-E's free AI image
             generator.
           </div>
-          <div className="input-group mx-3 my-3">
+          <div className="input-group mx-2 my-3">
             {/* ---------------------Input Field------------------- */}
             <input
-              className="com p-3"
+              className="com m-0 p-3"
               ref={inputRef}
               onChange={(e) => setuserPrompt(e.target.value)}
               value={transcript || userPrompt}

@@ -245,6 +245,14 @@ body {
     margin: 0 auto;
     width: 98%;
   }
+  .chatAssitant .response .user {
+    padding: 1rem 0rem;
+    margin: 2rem .4rem!important;
+  }
+  .chatAssitant .response .bot {
+    padding: 1rem 0rem;
+    margin: 2rem .4rem!important;
+  }
   .response{
     padding: 0 0 20rem 0!important;
   }
