@@ -67,8 +67,12 @@ const MainAreaAssistant = ({
         </div>
         {/* ---------------Input Field----------- */}
         <div className="bottom mx-2">
-          <div className="row justify-content-around align-items-center">
-            <div className="col-10 d-flex">
+          <div
+            className={`row ${
+              window.innerWidth > 500 && "mx-5 px-5"
+            } justify-content-center align-items-center`}
+          >
+            <div className="col-10 col-lg-8 d-flex">
               <input
                 className="jsf py-3  fs-3 form-control"
                 ref={inputRef}
@@ -78,7 +82,7 @@ const MainAreaAssistant = ({
               />
               {userInput !== "" ? (
                 <div
-                  class="textClip d-flex ps-3 align-items-center justify-content-center fs-2 text-danger"
+                  class="textClip d-flex ps-3 pointer align-items-center justify-content-center fs-2 text-danger"
                   onClick={clearInput}
                 >
                   <FaTimes />
@@ -86,42 +90,44 @@ const MainAreaAssistant = ({
               ) : null}
             </div>
 
-            <div className="col-2 d-flex align-items-center justify-content-center">
+            <div className="col-2 col-lg-1 d-flex align-items-center justify-content-center">
               {/* --------------SendButton--------- */}
               <div
-                className={`sendButton   px-3 py-2 text-color ${
+                className={`sendButton pointer  p-3 text-color ${
                   listening ? "link_active" : null
                 }`}
                 onClick={callApi}
               >
                 {loading ? (
-                  <div className="textClip fs-2 text-primary py-2 px-1">
+                  <span className="textClip fs-2  text-primary ">
                     <PulseSpinner size={30} color="black" />
-                  </div>
+                  </span>
                 ) : (
-                  <div className="textClip  px-3 fs-2 text-primary">
+                  <span className="textClip shadow-out px-4 py-3 fs-2 roundedBorder text-primary">
                     <FaTelegramPlane />
-                  </div>
+                  </span>
                 )}
               </div>
             </div>
 
             {/* --------------Microphone--------- */}
             {window.innerWidth > 500 && (
-              <div
-                className={`microphone p-4 shadow-out text-color ${
-                  listening ? "link_active" : null
-                }`}
-                onClick={SpeechRecognition.startListening}
-                disabled={listening}
-              >
-                {listening ? (
-                  <ImpulseSpinner size={20} color="red" />
-                ) : (
-                  <div className="textClip fs-2  mx-2 mic text-dark">
-                    <FaMicrophone />
-                  </div>
-                )}
+              <div className="col-lg-1 center">
+                <div
+                  className={`microphone shadow-out p-3 roundedBorder text-color ${
+                    listening ? "link_active" : null
+                  }`}
+                  onClick={SpeechRecognition.startListening}
+                  disabled={listening}
+                >
+                  {listening ? (
+                    <ImpulseSpinner size={20} color="red" />
+                  ) : (
+                    <div className="textClip fs-2  mx-2 mic text-dark">
+                      <FaMicrophone />
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>

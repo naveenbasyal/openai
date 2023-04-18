@@ -5,3 +5,9 @@
 .clearButton{
     padding: .8rem 0.6rem!important;
 }
+.roundedBorder{
+    border-radius: 60%!important;
+}
+.pointer{
+    cursor: pointer!important;
+}
